@@ -1,10 +1,10 @@
+// Fonction pour récupérer et afficher les données récoltés de l'API
 window.addEventListener('load', () => {
     fetch('conf.json')
       .then(response => response.json())
       .then(data => {
-        const apiKey = data.apiKey; // Clé d'API météo (à stocker dans conf.json)
-        const city = data.city; // Ville pour laquelle vous souhaitez obtenir les données météo
-  
+        const apiKey = data.apiKey; 
+        const city = data.city;
         const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   
         fetch(apiUrl)
@@ -30,7 +30,7 @@ window.addEventListener('load', () => {
             } else if (weatherConditions.includes('clear')) {
               weatherIcon = 'soleil.png';
             } else {
-              weatherIcon = 'default.png'; // Une image par défaut pour les autres conditions météo
+              weatherIcon = 'default.png';
             }
 
             const iconImg = document.createElement('img');
@@ -47,3 +47,16 @@ window.addEventListener('load', () => {
         console.log('Erreur de chargement du fichier de configuration', error);
       });
   });
+
+// Fonction pour refresh la page toutes les heures
+const timeRefresh = 3600000;
+
+function timeRefresher() {
+  setTimeout(() => {
+    location.reload();
+  }, timeRefresh);
+}
+
+window.addEventListener('load', () => {
+  timeRefresher();
+});
