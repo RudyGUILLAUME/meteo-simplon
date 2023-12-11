@@ -1,8 +1,38 @@
+/* ******************************STYLE BALISE************************************/
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
 }
+
+h1 {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+img {
+  width: 300px;
+  margin-left: 50px;
+}
+
+/* ******************************STYLE ID***************************************/
+
+#temperature {
+  font-size: 40px;
+  }
+
+#city {
+  font-size: 50px;
+}
+
+#catchPhrase {
+  margin-top: 50px;
+  padding-top: 10px;
+  font-weight: bolder ;
+}
+
+/* ***************************STYLE CLASS***************************************/
 
 .weather-container {
   width: 80%;
@@ -13,11 +43,6 @@ body {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   text-align: center;
   color: #e6e0e0;
-}
-
-h1 {
-  margin-bottom: 20px;
-  color: #555;
 }
 
 .weather-info {
@@ -32,11 +57,6 @@ h1 {
   width: 50px;
 }
 
-img {
-  width: 300px;
-  margin-left: 50px;
-}
-
 .weather-details {
   display: flex;
   flex-direction: column;
@@ -45,12 +65,7 @@ img {
 }
 
 .weather-details p {
-  margin: 10px 0;
-}
-
-#city {
-  font-size: 30px;
-  font-weight: bold
+  margin: 10px 50px;
 }
 
 .weather-details p span {

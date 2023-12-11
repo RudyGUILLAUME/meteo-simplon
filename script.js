@@ -1,4 +1,4 @@
-// Fonction pour récupérer et afficher les données récoltés de l'API
+// Fonction pour récupérer et afficher les données récoltées de l'API
 window.addEventListener('load', () => {
     fetch('conf.json')
       .then(response => response.json())
@@ -13,11 +13,14 @@ window.addEventListener('load', () => {
           .then(weatherData => {
             console.log(weatherData);
 
+            const temperature = Math.round(weatherData.main.temp);
+            const feelsLike = Math.round(weatherData.main.feels_like);
+
             document.getElementById('city').textContent = `${weatherData.name}`;
-            document.getElementById('temperature').textContent = `${weatherData.main.temp}°C`;
+            document.getElementById('temperature').textContent = `${temperature}°C`;
             document.getElementById('humidity').textContent = `${weatherData.main.humidity}%`;
-            document.getElementById('pressure').textContent = `${weatherData.main.pressure}hPa`;
-            document.getElementById('feels_like').textContent = `${weatherData.main.feels_like}°C`;
+            document.getElementById('pressure').textContent = `${weatherData.wind.speed}km/h`;
+            document.getElementById('feels_like').textContent = `${feelsLike}°C`;
 
             const weatherConditions = weatherData.weather[0].main.toLowerCase();
             console.log(weatherConditions);
